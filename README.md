@@ -62,7 +62,7 @@
    ```bash
    npm run dev
    ```
-3. 브라우저에서 [https://inflist.vercel.app/](Inflist) 접속
+3. 브라우저에서 [Inflist](https://inflist.vercel.app/) 접속
 
 ---
 
