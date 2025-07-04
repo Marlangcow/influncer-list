@@ -113,22 +113,22 @@ export default function InflistLanding() {
     instagram: {
       icon: <Instagram className="w-6 h-6" />,
       name: "Instagram",
-      color: "from-purple-500 to-pink-500",
+      color: "bg-blue-500",
     },
     tiktok: {
       icon: <MessageCircle className="w-6 h-6" />,
       name: "TikTok",
-      color: "from-gray-900 to-gray-700",
+      color: "bg-blue-500",
     },
     youtube: {
       icon: <Youtube className="w-6 h-6" />,
       name: "YouTube",
-      color: "from-red-600 to-red-500",
+      color: "bg-blue-500",
     },
     blog: {
       icon: <FileText className="w-6 h-6" />,
       name: "Blog",
-      color: "from-green-600 to-green-500",
+      color: "bg-blue-500",
     },
   }
 
@@ -197,39 +197,21 @@ export default function InflistLanding() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden">
-      {/* 배경 글래스 효과 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-white/20 via-blue-100/10 to-purple-100/20 backdrop-blur-3xl"></div>
-
+    <div className="min-h-screen bg-black text-white">
       {/* Hero 섹션 */}
-      <section id="hero" className="relative h-screen flex items-center justify-center">
-        <div className="absolute inset-0 bg-white/5 backdrop-blur-2xl"></div>
-
-        {/* 배경 패턴 */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="grid grid-cols-8 gap-4 h-full p-8">
-            {Array.from({ length: 64 }).map((_, i) => (
-              <div
-                key={i}
-                className="bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg animate-pulse"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
-          <h1 className="text-5xl md:text-8xl font-bold mb-8 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent leading-tight">
+      <section id="hero" className="h-screen flex items-center justify-center text-center">
+        <div className="max-w-5xl mx-auto px-6">
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
             한눈에 보는 K-인플루언서, Inflist
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-700 mb-12 leading-relaxed font-light">
+          <p className="text-2xl md:text-3xl text-gray-400 mb-12 leading-relaxed">
             TikTok·YouTube·Instagram·Blog 인기 인플루언서를
             <br />
             심플하게 비교하세요
           </p>
           <Button
             onClick={scrollToForm}
-            className="bg-[#1DA1F2]/20 hover:bg-[#1DA1F2]/30 backdrop-blur-lg border border-[#1DA1F2]/30 text-[#1DA1F2] px-12 py-6 text-xl rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:scale-105"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-12 py-6 text-xl rounded-full transition-all duration-300 transform hover:scale-105"
           >
             웨이팅 리스트 등록
             <ArrowRight className="ml-3 w-6 h-6" />
@@ -238,23 +220,22 @@ export default function InflistLanding() {
       </section>
 
       {/* 플랫폼 탭 & 주요 기능 요약 섹션 */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-xl"></div>
-        <div className="relative z-10 container mx-auto px-6 max-w-7xl">
+      <section className="py-24">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-6">
               플랫폼별 인플루언서 현황
             </h2>
-            <p className="text-xl text-gray-600">실시간으로 업데이트되는 인플루언서 데이터를 확인하세요</p>
+            <p className="text-xl text-gray-400">실시간으로 업데이트되는 인플루언서 데이터를 확인하세요</p>
           </div>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-12 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-2">
+            <TabsList className="grid w-full grid-cols-4 mb-12 bg-gray-900 border border-gray-800 rounded-2xl p-2">
               {Object.entries(platformData).map(([key, platform]) => (
                 <TabsTrigger
                   key={key}
                   value={key}
-                  className="flex items-center gap-3 py-4 px-6 rounded-xl data-[state=active]:bg-white/20 data-[state=active]:backdrop-blur-lg transition-all duration-300"
+                  className="flex items-center gap-3 py-4 px-6 rounded-xl data-[state=active]:bg-gray-800 transition-all duration-300"
                 >
                   {platform.icon}
                   <span className="font-medium">{platform.name}</span>
@@ -265,9 +246,9 @@ export default function InflistLanding() {
             {Object.entries(platformData).map(([key, platform]) => (
               <TabsContent key={key} value={key}>
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <Card className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl hover:bg-white/15 transition-all duration-500">
+                  <Card className="bg-gray-900 border border-gray-800 rounded-3xl shadow-2xl">
                     <CardHeader className="pb-8">
-                      <div className={`bg-gradient-to-r ${platform.color} text-white p-8 rounded-2xl mb-6`}>
+                      <div className={`${platform.color} text-white p-8 rounded-2xl mb-6`}>
                         <div className="flex items-center gap-4 mb-6">
                           {platform.icon}
                           <h3 className="text-3xl font-bold">{platform.name} 현황</h3>
@@ -299,7 +280,7 @@ export default function InflistLanding() {
                     ].map((feature, index) => (
                       <div
                         key={index}
-                        className="flex items-center gap-6 p-6 bg-white/10 backdrop-blur-lg rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-300"
+                        className="flex items-center gap-6 p-6 bg-gray-900 border border-gray-800 rounded-2xl"
                       >
                         {feature.icon}
                         <span className="text-lg font-medium">{feature.text}</span>
@@ -314,21 +295,20 @@ export default function InflistLanding() {
       </section>
 
       {/* 크롤링 인플루언서 리스트 섹션 */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-purple-50/50 backdrop-blur-xl"></div>
-        <div className="relative z-10 container mx-auto px-6 max-w-7xl">
+      <section className="py-24 bg-gray-950">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-6">
               실시간 인플루언서 리스트
             </h2>
-            <p className="text-xl text-gray-600">최신 크롤링 데이터 기반 실시간 업데이트</p>
+            <p className="text-xl text-gray-400">최신 크롤링 데이터 기반 실시간 업데이트</p>
           </div>
 
           {/* 필터 바 */}
           <div className="mb-12">
             <div className="flex items-center gap-4 mb-6">
-              <Filter className="w-6 h-6 text-gray-600" />
-              <span className="text-lg font-medium text-gray-700">필터 선택:</span>
+              <Filter className="w-6 h-6 text-gray-400" />
+              <span className="text-lg font-medium text-gray-300">필터 선택:</span>
             </div>
             <div className="flex flex-wrap gap-3">
               {filterOptions.map((filter) => (
@@ -338,8 +318,8 @@ export default function InflistLanding() {
                   variant={activeFilter === filter ? "default" : "outline"}
                   className={`px-6 py-3 rounded-full transition-all duration-300 ${
                     activeFilter === filter
-                      ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
-                      : "bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/20"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-800 border-gray-700 hover:bg-gray-700"
                   }`}
                 >
                   {filter}
@@ -353,34 +333,28 @@ export default function InflistLanding() {
             {dummyInfluencers.map((influencer) => (
               <Card
                 key={influencer.id}
-                className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl hover:bg-white/15 hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+                className="bg-gray-900 border border-gray-800 rounded-3xl shadow-xl hover:bg-gray-800 transition-all duration-300"
               >
                 <CardHeader className="text-center pb-4">
                   <div className="text-6xl mb-4">{influencer.avatar}</div>
                   <CardTitle className="text-xl font-bold">{influencer.name}</CardTitle>
-                  <CardDescription className="text-gray-600">{influencer.handle}</CardDescription>
+                  <CardDescription className="text-gray-400">{influencer.handle}</CardDescription>
                   <Badge
                     className={`w-fit mx-auto mt-2 ${
-                      influencer.platform === "instagram"
-                        ? "bg-gradient-to-r from-purple-500 to-pink-500"
-                        : influencer.platform === "tiktok"
-                          ? "bg-black"
-                          : influencer.platform === "youtube"
-                            ? "bg-red-600"
-                            : "bg-green-600"
+                      platformData[influencer.platform as keyof typeof platformData].color
                     }`}
                   >
                     {platformData[influencer.platform as keyof typeof platformData].name}
                   </Badge>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div className="flex justify-between items-center p-3 bg-white/10 rounded-xl">
-                    <span className="text-gray-600">팔로워</span>
+                  <div className="flex justify-between items-center p-3 bg-gray-800 rounded-xl">
+                    <span className="text-gray-400">팔로워</span>
                     <span className="font-bold text-lg">{influencer.followers}</span>
                   </div>
-                  <div className="flex justify-between items-center p-3 bg-white/10 rounded-xl">
-                    <span className="text-gray-600">참여율</span>
-                    <span className="font-bold text-lg text-green-600">{influencer.engagement}</span>
+                  <div className="flex justify-between items-center p-3 bg-gray-800 rounded-xl">
+                    <span className="text-gray-400">참여율</span>
+                    <span className="font-bold text-lg text-green-400">{influencer.engagement}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -390,14 +364,13 @@ export default function InflistLanding() {
       </section>
 
       {/* 사용 시나리오 예시 섹션 */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-white/5 backdrop-blur-xl"></div>
-        <div className="relative z-10 container mx-auto px-6 max-w-7xl">
+      <section className="py-24">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-6">
               사용 시나리오
             </h2>
-            <p className="text-xl text-gray-600">마케터들이 Inflist를 어떻게 활용하는지 확인해보세요</p>
+            <p className="text-xl text-gray-400">마케터들이 Inflist를 어떻게 활용하는지 확인해보세요</p>
           </div>
 
           <div className="flex gap-8 overflow-x-auto pb-8">
@@ -429,17 +402,17 @@ export default function InflistLanding() {
             ].map((scenario) => (
               <Card
                 key={scenario.step}
-                className="min-w-[350px] bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl hover:bg-white/15 transition-all duration-500"
+                className="min-w-[350px] bg-gray-900 border border-gray-800 rounded-3xl shadow-xl"
               >
                 <CardHeader className="text-center pb-6">
                   <div className="text-6xl mb-6">{scenario.emoji}</div>
-                  <Badge variant="outline" className="w-fit mx-auto mb-4 bg-white/20 backdrop-blur-lg">
+                  <Badge variant="outline" className="w-fit mx-auto mb-4 bg-gray-800 border-gray-700">
                     Step {scenario.step}
                   </Badge>
                   <CardTitle className="text-2xl font-bold">{scenario.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-center text-lg leading-relaxed">
+                  <CardDescription className="text-center text-lg leading-relaxed text-gray-400">
                     {scenario.description}
                   </CardDescription>
                 </CardContent>
@@ -450,14 +423,13 @@ export default function InflistLanding() {
       </section>
 
       {/* 가격 정책 섹션 */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-50/50 to-pink-50/50 backdrop-blur-xl"></div>
-        <div className="relative z-10 container mx-auto px-6 max-w-7xl">
+      <section className="py-24 bg-gray-950">
+        <div className="container mx-auto px-6 max-w-7xl">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-6">
               가격 정책
             </h2>
-            <p className="text-xl text-gray-600">필요에 맞는 플랜을 선택하세요</p>
+            <p className="text-xl text-gray-400">필요에 맞는 플랜을 선택하세요</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -489,17 +461,17 @@ export default function InflistLanding() {
             ].map((plan) => (
               <Card
                 key={plan.name}
-                className={`relative bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-xl hover:bg-white/15 transition-all duration-500 ${plan.popular ? "border-[#1DA1F2]/50 shadow-2xl" : ""}`}
+                className={`bg-gray-900 border border-gray-800 rounded-3xl shadow-xl ${plan.popular ? "border-blue-500" : ""}`}
               >
                 {plan.popular && (
-                  <Badge className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#1DA1F2] to-blue-600 text-white px-6 py-2 rounded-full">
+                  <Badge className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-6 py-2 rounded-full">
                     인기
                   </Badge>
                 )}
                 <CardHeader className="text-center pb-8">
                   <CardTitle className="text-3xl font-bold mb-4">{plan.name}</CardTitle>
-                  <div className="text-4xl font-bold text-[#1DA1F2] mb-4">{plan.price}</div>
-                  <CardDescription className="text-lg">{plan.description}</CardDescription>
+                  <div className="text-4xl font-bold text-blue-500 mb-4">{plan.price}</div>
+                  <CardDescription className="text-lg text-gray-400">{plan.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <ul className="space-y-4">
@@ -514,8 +486,8 @@ export default function InflistLanding() {
                     onClick={scrollToForm}
                     className={`w-full py-4 text-lg rounded-2xl transition-all duration-300 ${
                       plan.popular
-                        ? "bg-gradient-to-r from-[#1DA1F2] to-blue-600 hover:from-[#1a91da] hover:to-blue-700 text-white shadow-lg"
-                        : "bg-white/20 backdrop-blur-lg border border-white/30 hover:bg-white/30"
+                        ? "bg-blue-600 hover:bg-blue-700 text-white"
+                        : "bg-gray-800 hover:bg-gray-700"
                     }`}
                   >
                     {plan.cta}
@@ -528,15 +500,14 @@ export default function InflistLanding() {
       </section>
 
       {/* 웨이팅 리스트 등록 폼 */}
-      <section id="waitlist-form" className="py-24 relative">
-        <div className="absolute inset-0 bg-white/10 backdrop-blur-2xl"></div>
-        <div className="relative z-10 container mx-auto px-6">
+      <section id="waitlist-form" className="py-24">
+        <div className="container mx-auto px-6">
           <div className="max-w-lg mx-auto">
             {!isSubmitted ? (
-              <Card className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl">
+              <Card className="bg-gray-900 border border-gray-800 rounded-3xl shadow-2xl">
                 <CardHeader className="text-center pb-8">
                   <CardTitle className="text-3xl font-bold mb-4">웨이팅 리스트 등록</CardTitle>
-                  <CardDescription className="text-lg">출시 소식을 가장 먼저 받아보세요</CardDescription>
+                  <CardDescription className="text-lg text-gray-400">출시 소식을 가장 먼저 받아보세요</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -545,7 +516,7 @@ export default function InflistLanding() {
                         placeholder="이름"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl py-4 px-6 text-lg ${errors.name ? "border-red-500" : ""}`}
+                        className={`bg-gray-800 border-gray-700 rounded-xl py-4 px-6 text-lg ${errors.name ? "border-red-500" : ""}`}
                       />
                       {errors.name && <p className="text-red-500 text-sm mt-2">{errors.name}</p>}
                     </div>
@@ -556,7 +527,7 @@ export default function InflistLanding() {
                         placeholder="이메일"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl py-4 px-6 text-lg ${errors.email ? "border-red-500" : ""}`}
+                        className={`bg-gray-800 border-gray-700 rounded-xl py-4 px-6 text-lg ${errors.email ? "border-red-500" : ""}`}
                       />
                       {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email}</p>}
                     </div>
@@ -567,11 +538,11 @@ export default function InflistLanding() {
                         onValueChange={(value) => setFormData({ ...formData, type: value })}
                       >
                         <SelectTrigger
-                          className={`bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl py-4 px-6 text-lg ${errors.type ? "border-red-500" : ""}`}
+                          className={`bg-gray-800 border-gray-700 rounded-xl py-4 px-6 text-lg ${errors.type ? "border-red-500" : ""}`}
                         >
                           <SelectValue placeholder="유형을 선택하세요" />
                         </SelectTrigger>
-                        <SelectContent className="bg-white/90 backdrop-blur-lg border border-white/20 rounded-2xl">
+                        <SelectContent className="bg-gray-900 border-gray-800 rounded-xl">
                           <SelectItem value="marketer">마케터</SelectItem>
                           <SelectItem value="individual">개인</SelectItem>
                           <SelectItem value="other">기타</SelectItem>
@@ -582,7 +553,7 @@ export default function InflistLanding() {
 
                     <Button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#1DA1F2] to-blue-600 hover:from-[#1a91da] hover:to-blue-700 text-white py-4 text-lg rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg rounded-xl"
                       disabled={!formData.name || !formData.email || !formData.type}
                     >
                       등록하기
@@ -591,14 +562,14 @@ export default function InflistLanding() {
                 </CardContent>
               </Card>
             ) : (
-              <Card className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl">
+              <Card className="bg-gray-900 border border-gray-800 rounded-3xl shadow-2xl">
                 <CardContent className="text-center py-16">
                   <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-8" />
                   <h3 className="text-3xl font-bold mb-6">🎉 웨이팅 리스트 등록 완료!</h3>
-                  <p className="text-xl text-gray-600 mb-8">출시되면 가장 먼저 알려드릴게요.</p>
+                  <p className="text-xl text-gray-400 mb-8">출시되면 가장 먼저 알려드릴게요.</p>
                   <Button
                     onClick={scrollToHome}
-                    className="bg-white/20 backdrop-blur-lg border border-white/30 hover:bg-white/30 px-8 py-4 text-lg rounded-2xl transition-all duration-300"
+                    className="bg-gray-800 hover:bg-gray-700 px-8 py-4 text-lg rounded-xl"
                   >
                     홈으로 돌아가기
                   </Button>
@@ -610,21 +581,20 @@ export default function InflistLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 relative">
-        <div className="absolute inset-0 bg-white/5 backdrop-blur-2xl"></div>
-        <div className="relative z-10 container mx-auto px-6">
+      <footer className="py-16">
+        <div className="container mx-auto px-6">
           <div className="text-center">
-            <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-4">
               Inflist
             </h3>
-            <p className="text-lg text-gray-600 mb-8">한눈에 보는 K-인플루언서 플랫폼</p>
+            <p className="text-lg text-gray-400 mb-8">한눈에 보는 K-인플루언서 플랫폼</p>
             <div className="flex justify-center gap-6 mb-8">
               {[Instagram, Youtube, MessageCircle].map((Icon, index) => (
                 <div
                   key={index}
-                  className="w-12 h-12 bg-white/10 backdrop-blur-lg rounded-full flex items-center justify-center opacity-50 hover:opacity-75 transition-opacity"
+                  className="w-12 h-12 bg-gray-900 border border-gray-800 rounded-full flex items-center justify-center"
                 >
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-6 h-6 text-gray-400" />
                 </div>
               ))}
             </div>

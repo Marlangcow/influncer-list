@@ -1,0 +1,17 @@
+node_modules
+.next
+.env
+.env.*
+.DS_Store
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode
+.cursor
+.gemini
+.idea
+*.swp
+*.swo
+*.log
+.gitattributes
